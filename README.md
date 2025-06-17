@@ -12,12 +12,19 @@ X Language fully supports **Model-Based Systems Engineering (MBSE)**. During the
 
 
 
+------
+
 
 
 The tools and resources related to X Language can be found or accessed at the following link.
 
 X language official website: http://xlanguage.cn/
+
+
+
 X language modeling and simulation tool: http://www.xlab-bh.com/
+
+
 
 X language Chinese national standard: [国家标准 - 全国标准信息公共服务平台](https://std.samr.gov.cn/gb/search/gbDetailed?id=0B4529DE1038FCAFE06397BE0A0A46CC#:~:text=国家标准《复杂产品协同设计集成建模语言X语言架构》 由 TC159 （全国自动化系统与集成标准化技术委员会）归口，,TC159SC5 （全国自动化系统与集成标准化技术委员会体系结构、通信和集成框架分会）执行 ，主管部门为 中国机械工业联合会。)
 
@@ -39,7 +46,7 @@ Key Papers in X Language Development:
 
 
 
-
+------
 
 Contact us:
 
