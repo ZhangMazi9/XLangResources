@@ -1,0 +1,11 @@
+{
+  "name": "Battery",
+
+  "purpose": "The power module provides a stable working voltage of 28.5V to each module and maintains it during operation",
+  
+  "ports": "The input of the power module is the startup signal evstart (bool type), and the output is the voltage signal (real type) supplied to the power-consuming modules",
+  
+  "states": "There are two states: initial state and working state. After receiving the evStart signal in the initial state, it enters the working state and maintains the working state while sending a working voltage of 28.5V",
+  
+  "model_text": "discrete Battery\nport:\n  event input bool evstart;event output real voltage;\nstate:\ninitial state idle\nwhen entry() then statehold(infinite);end;\nwhen receive(evstart) then transition(discharge0); end;end;\nstate discharge0\nwhen entry() then statehold(0);end;\nwhen timeover() then transition(discharge);out send(voltage,28.5);end;\nend;\nstate discharge\nwhen entry() then statehold(infinite);end;end;\nend;"
+}
