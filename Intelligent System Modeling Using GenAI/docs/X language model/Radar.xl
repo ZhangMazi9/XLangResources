@@ -1,0 +1,33 @@
+discrete Radar
+port:
+  event input bool evLeidayure;
+  event input bool evGaoyajietong;
+  event input real voltage;
+  event output real current;
+state:
+initial state off
+when entry() then
+  statehold(infinite);
+end;
+when receive(voltage) then
+end;
+when receive(evLeidayure) then
+  current = 20; 
+  transition(yure); 
+end;
+end;
+state yure
+when entry() then
+  statehold(infinite);
+end;
+when receive(evGaoyajietong) then
+  current = 30; 
+  transition(gaoyajietong); 
+end;
+end;
+state gaoyajietong
+when entry() then
+  statehold(infinite);
+end;
+end;
+end;

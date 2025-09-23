@@ -1,0 +1,113 @@
+discrete BallisticSceneControl
+port:
+  event input bool evstart;
+  event output real evInstruct;
+state:
+  initial state idle
+    when entry() then
+      statehold(infinite);
+    end;
+    when receive(evstart) then
+      transition(kaishipasheng0);
+      
+    end;
+  end;
+  state kaishipasheng0
+    when entry() then
+      statehold(0);
+    end;
+    when timeover() then
+      transition(kaishipasheng);
+      out
+        send(evInstruct,10000);
+    end;
+  end;
+  state kaishipasheng
+    when entry() then
+      statehold(10);
+    end;
+    when timeover() then
+      transition(fadongjizhunbeidianhuo);
+      out
+        send(evInstruct,11000);
+    end;
+  end;
+  state fadongjizhunbeidianhuo
+    when entry() then
+      statehold(20);
+    end;
+    when timeover() then
+      transition(fadongjidianhuo);
+      
+    end;
+  end;
+  state fadongjidianhuo
+    when entry() then
+      statehold(30);
+    end;
+    when timeover() then
+      transition(shanmianguaiwan);
+      
+    end;
+  end;
+  state shanmianguaiwan
+    when entry() then
+      statehold(40);
+    end;
+    when timeover() then
+      transition(xiahua);
+      
+    end;
+  end;
+  state xiahua
+    when entry() then
+      statehold(30);
+    end;
+    when timeover() then
+      transition(pingfei2);
+      out
+        send(evInstruct,10101);
+    end;
+  end;
+  state pingfei2
+    when entry() then
+      statehold(20);
+    end;
+    when timeover() then
+      transition(ercijianggao);
+      out
+        send(evInstruct,10010);
+    end;
+  end;
+  state ercijianggao
+    when entry() then
+      statehold(10);
+    end;
+    when timeover() then
+      transition(pingfei3);
+      out
+        send(evInstruct,10001);
+    end;
+  end;
+  state pingfei3
+    when entry() then
+      statehold(20);
+    end;
+    when timeover() then
+      transition(fuchong);
+      out
+        send(evInstruct,10011);
+    end;
+  end;
+  state fuchong
+    when entry() then
+      statehold(30);
+    end;
+    when timeover() then
+      transition(finish);
+      
+    end;
+  end;
+  state finish
+  end;
+end;

@@ -1,0 +1,46 @@
+discrete AutoPilot
+port:
+  event input bool evDuojidakai;
+  event input bool evgonglv1;
+  event input bool evgonglv2;
+  event input bool evgonglv3;
+  event input real voltage;
+  event output real current;
+state:
+initial state off
+when entry() then
+  statehold(infinite);
+end;
+when receive(voltage) then
+end;
+when receive(evDuojidakai) then
+  current = 30; 
+  transition(on); 
+end;
+end;
+state on
+when entry() then
+  statehold(infinite);
+end;
+when receive(evgonglv1) then
+  current = 18; 
+  transition(tran); 
+end;
+when receive(evgonglv2) then
+  current = 30; 
+  transition(tran); 
+end;
+when receive(evgonglv3) then
+  current = 28;
+  transition(tran); 
+end;
+end;
+state tran
+when entry() then
+  statehold(0);
+end;
+when timeover() then
+  transition(on);
+end;
+end;
+end;

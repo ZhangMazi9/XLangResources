@@ -1,0 +1,20 @@
+discrete oper
+port:
+  event output bool evstart;
+state:
+initial state idle
+when entry() then
+  statehold(0);
+end;
+when timeover() then
+  transition(off);
+  out
+   send(evstart,true);
+end;
+end;
+state off
+when entry() then
+  statehold(infinite);
+end;
+end;
+end;

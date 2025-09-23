@@ -1,0 +1,48 @@
+discrete ControlBusModule
+port:
+  event input real evInstruct;
+  event output bool evLeidayure;
+  event output bool evDuojidakai;
+  event output bool evyinxindianhuo;
+  event output bool evgonglv1;
+  event output bool evGaoyajietong;
+  event output bool evgonglv2;
+  event output bool evgonglv3;
+state:
+initial state idle
+when entry() then
+  statehold(infinite);
+end;
+when receive(evInstruct) then
+  transition(tran); 
+end;
+end;
+state tran
+when entry() then
+  statehold(0);
+end;
+when timeover() then
+  transition(idle);
+  out
+  if evInstruct == 10000  then
+   send(evLeidayure,true);
+   send(evDuojidakai,true);
+  else if evInstruct == 11000  then
+    send(evyinxindianhuo,true);
+  else if evInstruct == 10101  then
+   send(evgonglv1,true);
+   send(evGaoyajietong,true);
+  else if evInstruct == 10010  then
+   send(evgonglv2,true);
+  else if evInstruct == 10001  then
+   send(evgonglv1,true);
+  else 
+    send(evgonglv3,true);
+  end;
+   end;
+    end;
+     end;
+     end;
+end;
+end;
+end;

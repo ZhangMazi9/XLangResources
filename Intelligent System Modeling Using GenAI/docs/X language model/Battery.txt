@@ -1,0 +1,29 @@
+discrete Battery
+port:
+  event input bool evstart;
+  event output real voltage;
+state:
+initial state idle
+when entry() then
+  statehold(infinite);
+end;
+when receive(evstart) then
+  transition(discharge0); 
+end;
+end;
+state discharge0
+when entry() then
+  statehold(0);
+end;
+when timeover() then
+  transition(discharge);
+ out
+ send(voltage,28.5);
+end;
+end;
+state discharge
+when entry() then
+  statehold(infinite);
+end;
+end;
+end;

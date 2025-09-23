@@ -1,0 +1,31 @@
+couple Aircraft_electrical_system
+import architectureModels.ControlBusModule as ControlBusModule;
+import architectureModels.Battery as Battery;
+import architectureModels.Thrust as Thrust;
+import architectureModels.Radar as Radar;
+import architectureModels.AutoPilot as AutoPilot;
+import architectureModels.BallisticSceneControl as BallisticSceneControl;
+import architectureModels.oper as oper;
+part:
+  BallisticSceneControl BSC();
+  ControlBusModule CBM();
+  Battery BAT();
+  Thrust THRUST();
+  Radar RADAR();
+  AutoPilot AP();
+  oper OP();
+connection:
+  connect(OP.evstart,BSC.evstart);
+  connect(BSC.evInstruct,CBM.evInstruct);
+  connect(CBM.evLeidayure,RADAR.evLeidayure);
+  connect(CBM.evDuojidakai,AP.evDuojidakai);
+  connect(CBM.evyinxindianhuo,THRUST.evyinxindianhuo);
+  connect(CBM.evgonglv1,AP.evgonglv1);
+  connect(CBM.evGaoyajietong,RADAR.evGaoyajietong);
+  connect(CBM.evgonglv2,AP.evgonglv2);
+  connect(CBM.evgonglv3,AP.evgonglv3);
+  connect(BAT.voltage,AP.voltage);
+  connect(BAT.voltage,THRUST.voltage);
+  connect(BAT.voltage,RADAR.voltage);
+  connect(OP.evstart,BAT.evstart);
+end;

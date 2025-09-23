@@ -1,0 +1,33 @@
+discrete Thrust
+port:
+  event input bool evyinxindianhuo;
+  event input real voltage;
+  event output real current;
+	
+state:
+initial state off
+when entry() then
+ statehold(infinite);
+end;
+when receive(voltage) then
+end;
+when receive(evyinxindianhuo) then
+   current = 1 ;
+   transition(on);
+end;
+end;
+state on
+when entry() then
+statehold(15);
+end;
+when timeover() then
+  current = 0;
+  transition(over);
+end;
+end;
+state over
+when entry() then
+statehold(infinite);
+end;
+end;
+end;
